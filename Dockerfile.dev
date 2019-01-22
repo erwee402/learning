@@ -5,7 +5,6 @@ WORKDIR '/app'
 COPY package.json .
 RUN npm install
 
-# Disabled as we now use volume
-# COPY . .
+COPY . .
 
 CMD ["npm", "run", "start"]
