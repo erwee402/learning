@@ -7,3 +7,16 @@ before_install:
 
 script:
   - docker run jeroenuptech/learning-docker npm run test -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-west-1"
+  app: "learning-docker"
+  env: "LearningDocker-env"
+  bucket_name: "elasticbeanstalk-eu-west-1-306451072438"
+  bucket_path: "learning-docker"
+  on: 
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:   
+    secure: "$AWS_SECRET_KEY"
